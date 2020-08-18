@@ -1,14 +1,14 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
-import Child from './child';
-// import {TransactionContext} from './TransationalContext.js'
-// 51:32
+import { ContextProvider } from './context';
+import Child from './child'
+
 function App() {
+
   return (
-    <div className="App">
+    <ContextProvider>
       <Child />
-    </div>
+    </ContextProvider>
   );
 }
 

@@ -1,52 +1,84 @@
-import React, {useContext} from 'react'
-import {TransactionContext} from './TransationalContext.js'
+import React, { useState, useContext } from 'react';
+import { TransactionContext } from './context';
 
-export default function Child(){
+function Child() {
 
-    let transaction = useContext(TransactionContext)
+    const { transactions, addTransaction } = useContext(TransactionContext);
 
-    return(
+    // let [transactions, setTransaction] = useState(transactions);
+    let [newDesc, setNewDesc] = useState('');
+    let [newAmount, setNewAmount] = useState(0);
 
-        <div>
-            <h1>Expense Tracker</h1>
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        addTransaction({ amount: Number(newAmount), desc: newDesc })
+    }
 
-            <h3>Your Balance <br /> $200 </h3>
-            <div class = "statements">
-                    <h3>Income <br /> $20 </h3>
-                    <h3>Expense <br /> $50 </h3>
+    const getIncome = () => {
+        let income = 0;
+        for (var i = 0; i < transactions.length; i++) {
+            if (transactions[i].amount > 0)
+                income += transactions[i].amount
+        }
+        return income;
+    }
+
+    const getExpense = () => {
+        let expense = 0;
+        for (var i = 0; i < transactions.length; i++) {
+            if (transactions[i].amount < 0)
+                expense += transactions[i].amount
+        }
+        return expense;
+    }
+
+    return (
+        <div className="container">
+            <h1 className="text-center">Expense Tracker</h1>
+            <h3 className= "header-text" >Your balance <br /> {getIncome() + getExpense()} </h3>
+
+            <div className="total-expense-container">
+                <h3>Income <br /> {getIncome()} </h3>
+                <h3>Expense <br /> {getExpense()}</h3>
             </div>
 
-            <h3>History</h3>
-            <hr/>
+            <h4>History</h4>
+            <hr />
 
-            <ul className = "transaction-list">
-                {transaction.map((transObj, ind) => {
-                    return(
-                    <li>
-                        <span>{transObj.desc}</span>
-                        <span>{transObj.amount}</span>
-                    </li>
+            <ul className="expense-list">
+                {transactions.map((transaction, ind) => {
+                    return (
+                        <li key={ind}>
+                            <span> {transaction.desc} </span>
+                            <span> {transaction.amount} </span>
+                        </li>
                     )
                 })}
             </ul>
-           
-            <h3>Add New Transaction</h3>
-            <hr/>
 
-           <form className = "transaction-form" >
-               <label>
-                   Enter Description <br/>
-                   <input type ="text" required></input> <br/>
-               </label>
-               <label>
-                   Enter Amount <br/>
-                   <input type ="number" required></input> <br/>
-               </label>
+            <h4>Add New Transaction</h4>
+            <hr />
 
-               <input type = "submit" value= "Add Transaction" />
-           </form>
-           
-            
+            <form className="transaction-form" onSubmit={handleSubmit}>
+                <label>
+                    Enter Description: <br />
+                    <input type="text" required onChange={(e) => setNewDesc(e.target.value)} />
+                </label>
+
+                <br />
+
+                <label>
+                    Enter Amount: <br />
+                    <input type="number" required onChange={(e) => setNewAmount(e.target.value)} />
+                </label>
+
+                <br /> <br />
+
+                <input type="submit" value="Add Transaction" />
+
+            </form>
         </div>
-    )
+    );
 }
+
+export default Child;
