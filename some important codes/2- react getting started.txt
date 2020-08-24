@@ -1,0 +1,25 @@
+First react need to be installed globally:
+
+	npm install --global create-react-app
+
+for installing locally:
+
+	npm init react-app reactjs
+
+create react app after installing globally
+
+	create-react-app start
+
+yarn installing
+
+	npm install -g yarn
+
+use this code to optimize your react app
+
+	yarn build
+	   OR
+	npm run build
+
+use this code to deploy on surge a specific directory
+
+	surge ./build     (to enter build directory from the current one)

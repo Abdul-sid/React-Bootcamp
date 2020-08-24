@@ -1,0 +1,15 @@
+to generate surge token
+
+	surge token
+
+to deploy on surge
+
+	surge
+
+important git commands
+
+git status (to check modificatied file name)
+git diff <filname> (to check modificatio)
+git add . (add all files)
+git commit -m <message> (to commit)
+git push (to push to repositery)
