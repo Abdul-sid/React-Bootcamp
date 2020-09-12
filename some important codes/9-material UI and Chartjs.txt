@@ -19,3 +19,9 @@ yarn add @material-ui/icons
 
 
 chart.js
+
+wrapper for react chartjs: https://github.com/jerairrest/react-chartjs-2
+
+npm install chart.js --save
+npm install --save react-chartjs-2 chart.js
+
