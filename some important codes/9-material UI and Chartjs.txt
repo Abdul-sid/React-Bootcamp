@@ -1,0 +1,21 @@
+material ui
+
+npm install @material-ui/core (in root folder)
+
+OR 
+
+yarn add @material-ui/core
+
+SVG Icons
+
+// with npm
+npm install @material-ui/icons
+
+// with yarn
+yarn add @material-ui/icons
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+
+
+chart.js
