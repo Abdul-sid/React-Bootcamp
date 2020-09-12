@@ -12,6 +12,15 @@ const data = {
       hoverBackgroundColor: 'rgba(255,99,132,0.4)',
       hoverBorderColor: 'rgba(255,99,132,1)',
       data: [65, 59, 80, 81, 56, 55, 40]
+    },
+    {
+      label: 'My Second dataset',
+      backgroundColor: 'green',
+      borderColor: 'rgba(255,99,132,1)',
+      borderWidth: 1,
+      hoverBackgroundColor: 'rgba(255,99,132,0.4)',
+      hoverBorderColor: 'rgba(255,99,132,1)',
+      data: [65, 59, 80, 81, 56, 55, 40]
     }
   ]
 };
@@ -19,7 +28,7 @@ const data = {
 export default function BarChart(){
     return (
       <div>
-        <h2>Bar Example (custom size)</h2>
+        <h2 style= {{textAlign: "center"}} >Bar Example (custom size)</h2>
         <Bar
           data={data}
           width={10}

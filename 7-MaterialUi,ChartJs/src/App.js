@@ -4,6 +4,7 @@ import NavBar from './NavBar.js';
 import { makeStyles } from '@material-ui/core/styles';
 import {Paper, TextField, Button, CircularProgress} from '@material-ui/core';
 import BarChart from './barChart';
+import Pie from './pieChart';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -39,6 +40,8 @@ function App() {
     <div className={classes.root}>
 
       <NavBar />
+      
+      <Pie />
 
       <BarChart />
       
