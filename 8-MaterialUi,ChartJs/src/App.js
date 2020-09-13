@@ -5,7 +5,7 @@ import Grid from './components/grid.js';
 
 function App() {
 
-// 26 minutes onward
+// 41 minutes onward
 
   return (
     <div>
