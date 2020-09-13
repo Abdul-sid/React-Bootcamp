@@ -27,9 +27,9 @@ export default function FullWidthGrid() {
     async function virusData(){
       const response = await fetch('https://api.thevirustracker.com/free-api?global=stats')
       const data = await response.json()
-      setglobalData(data)
-      console.log(data.results[0])
       delete data.results[0].source
+      setglobalData(data.results[0])
+      console.log(data.results[0])
 
     }
 
@@ -42,9 +42,17 @@ export default function FullWidthGrid() {
   return (
     <div className={classes.root}>
       <Grid container spacing={3}>
-        <Grid item xs={12} sm={4}>
-        <Paper className={classes.paper} elevation={3}></Paper>
-        </Grid>
+        {Object.keys(globalData).map((key,ind) => {
+          return(
+            <Grid item xs={12} sm={4} key ={ind}>
+              <Paper className={classes.paper} 
+              elevation={3}>
+               <h3 style = {{color: "blue"}} >{key.replace(/_/g, ' ').toUpperCase()}</h3>
+               <h3>{globalData[key]}</h3>
+                </Paper>
+            </Grid>
+          )
+        })}
       </Grid>
     </div>
   );
