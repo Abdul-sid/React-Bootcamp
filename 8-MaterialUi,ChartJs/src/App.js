@@ -1,18 +1,20 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './App.css';
 import AppBar from './components/appBar.js';
-import Grid from './components/Info.js';
+import Info from './components/Info.js';
 import BotNav from './components/FooterNav.js';
 
 function App() {
 
-// 1 hour 8 minutes onward
+  const screenConfig = useState(0);
+
+// 1 hour 26 minutes onward
 
   return (
     <div>
       <AppBar />
-      <Grid />
-      <BotNav />
+      <Info currentScreen = {screenConfig[0]}/>
+      <BotNav screenConfig = {screenConfig} />
     </div>
   );
 }

@@ -8,22 +8,24 @@ import LocationOnIcon from '@material-ui/icons/LocationOn';
 
 const useStyles = makeStyles({
   root: {
-    position: 'absolute',
+    position: 'relative',
     bottom: 0,
     right:0,
-    left: 0
+    left: 0,
+    top: 30
 },
 });
 
-export default function SimpleBottomNavigation() {
+export default function SimpleBottomNavigation({screenConfig}) {
   const classes = useStyles();
   const [value, setValue] = React.useState(0);
+  console.log(screenConfig)
 
   return (
     <BottomNavigation
-      value={value}
+      value={screenConfig[0]}
       onChange={(event, newValue) => {
-        setValue(newValue);
+        screenConfig[1](newValue);
       }}
       showLabels
       className={classes.root}
